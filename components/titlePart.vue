@@ -62,65 +62,107 @@ export default {
         }
 </script>
 <style>
-.img-logo-components{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 24px 32px;
-        gap: 362px;
-        position: absolute;
-        width: 1376px;
-        height: 30px;
-        left: 0px;
-        top: 0px;
-        /* background-color: red; */
-        box-shadow: 0px 0px 10px #b5b3b3;
-        
+.return-sunbook-components{
+    width:13vw;
+    height:1.60vw;
+   
+    cursor: pointer;
+}
+@media only screen and (max-width: 768px) {
+    .return-sunbook-components {
+      width: 20vw;
+      height: 1.60vw;
+      cursor: pointer;
+      
+    }
+  }
+  .return-sunbook{
+    cursor: pointer;
+  }
+  .back_to_sunbook{
+    width: 6.74vw;
+    height: 1.32vw;
+    font-family: 'Alibaba PuHuiTi';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.97vw;
+    line-height: 1.32vw;
+    
 
-    }
-.sunbook-logo-components{
+    color: #000000;
+  }
+  .fa-plane{
+    width:1.39vw;
+   
+  }
+.img-logo-components{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.67vw 2.22vw;
+    gap: 25.14vw;
     position: absolute;
-    left: 45%;
-    right: 53.56%;
-    top: 10%;
-    bottom: 97.12%;
-    }
+    width: 95.56vw;
+    height:2.08vw;
+    left: 0px;
+    top: 0px;
+    /* background-color: red; */
+    box-shadow: 0px 0px 10px #b5b3b3;
+    
+
+}
+.sunbook-logo-components{
+position: absolute;
+left: 45%;
+right: 53.56%;
+top: 10%;
+bottom: 97.12%;
+
+}
 .language-button-components{
 
-    position: absolute;
-    
-    left: 1140px;
-    top: 20px;
+position: absolute;
+width:6.94vw;
+height:2.78vw;
+left: 85.42vw;
+top: 1.39vw;
+
 }
+.el-dropdown{
+    width:6.94vw;
+    height:2.78vw;
+}
+
 .sunbook-text-components{
-        position: absolute;
-        left: 3.5%;
-        right: 0%;
-        top: 10%;
-        bottom: 61.45%;
-    }
-.currency-change-components{
-    background-color: white;
-    color:black;
-    width:100px;
-    height:40px;
-    border-color: white;
-    margin-left: 120px;
+    position: absolute;
+    left: 3.5%;
+    right: 0%;
+    top: 10%;
+    bottom: 61.45%;
 }
+.currency-change-components{
+background-color: white;
+color:black;
+width:6.94vw;
+height:2.78vw;
+border-color: white;
+margin-left: 8.33vw;
+}
+
 .currency-change-components:focus,.currency-change-components:hover{
-    background-color: #c6cbc9;
-    color:black;
-    border-color: white;
+background-color: #c6cbc9;
+color:black;
+border-color: white;
 }
 .currency-show-components{
-    position:absolute;
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 14px;
-    line-height: 19px;
-    bottom:8px;
-    right:23px;
+position:absolute;
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 800;
+font-size: 0.97vw;
+line-height: 1.32vw;
+bottom:0.56vw;
+right:1.60vw;
 }
 </style>

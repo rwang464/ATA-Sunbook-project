@@ -1,232 +1,77 @@
 <template>
-  <div>
-
-    <div class="search-bar">
-      
-        <!-- <div class="search-box"> -->
-                <el-menu
-                :default-active="activeIndex"
-                class="navmenu"
-                mode="horizontal"
-                @select="handleSelect">
-
-                    <el-menu-item index="1">
-                        <div class="menu">
-                        <img src="../static/activities_icon.png" />
-                        <span> &nbsp; Activities </span>
-                        </div>
-                    </el-menu-item>
-
-                    <el-menu-item index="2" disabled>
-                        <div class="menu">
-                        <img src="../static/stay_icon.png" />
-                        <span style="margin-top: 0.5rem"> &nbsp; Stays </span>
-                        </div>
-                    </el-menu-item>
-
-                </el-menu>
-      <!-- </div> -->
-
-      <div class="textbox">
-        <el-row :gutter="150">
-            <el-col :lg="8" :sm="12" :xs="12">
-                <el-autocomplete
-                class="textbox1"
-                v-model="searchInput"
-                :fetch-suggestions="querySearch"
-                placeholder="请输入目的地"
-                :trigger-on-focus="false"
-                @select="selectDestFunction"
-                ></el-autocomplete>
-            </el-col>
-
-            <el-col :lg="8" :sm="12" :xs="12">
-                <el-date-picker
-                v-model="dateValue"
-                type="date"
-                class="textbox2"
-                placeholder="请输入日期"
-                ></el-date-picker>
-            </el-col>
-
-            <el-col :lg="8" :sm="12" :xs="12">
-                <el-autocomplete
-                class="textbox3"
-                v-model="searchcategories"
-                :fetch-suggestions="querySearchCate"
-                placeholder="请输入种类"
-                :trigger-on-focus="false"
-                @select="selectFunction"
-                ></el-autocomplete>
-            </el-col>
-          </el-row>
-      </div>
-
-      <div class="search-button">
-        <!-- <el-button
-          type="primary"
-          class="my_button"
-          @click="selectDestination(currentPage)"
+  <div class="search-bar">
+    <!-- <div class="search-box"> -->
+    <div class="row mt-10 ml-10">
+      <div class="col-0">
+        <!-- 点击功能1-activities -->
+        <div
+          class="switch-tab"
+         
+        
         >
-          <i class="search_icon" style="height: 20px; vertical-align: middle">
-            <img src="../static/button_icon.png" />
-          </i>
-          Show Activities</el-button
-        > -->
+          <img src="/activities_icon.png" />
+          <span> Activities </span>
+        </div>
       </div>
-    </div>
+      <div class="col-0 ml-10">
+        <!-- 点击功能2-stays -->
+        <div
+          class="switch-tab"
+          :class="tabIndex === 2 ? 'select' : ''"
+          disabled
+        >
+          <img src="/stay_icon.png" />
+          <span> Stays </span>
+        </div>
+      </div>
 
+      <div class="col-1"></div>
+    </div>
+    <el-row :gutter="50" class="mt-0">
+      <el-col class="mt-20" :xs="24" :sm="12" :md="8"
+        >
+        <el-autocomplete class="w-p-100" placeholder="请输入目的地" 
+        v-model="searchInput" :fetch-suggestions="querySearch" 
+        :trigger-on-focus="false"
+        @select="selectDestFunction">
+        <template slot-scope="props">
+          <i class="el-icon-location"></i>
+          {{ props.item.value }}
+        </template>
+      </el-autocomplete>
+      </el-col>
+      <el-col class="mt-20" :xs="24" :sm="12" :md="8">
+        <!-- <el-input class="w-p-100" placeholder="日期" /> -->
+        <el-date-picker
+          style="width: 100%"
+          v-model="dateValue"
+          size="large"
+          placeholder="选择日期时间"
+          format="yyyy-MM-dd"
+          type="date"
+        >
+        </el-date-picker>
+      </el-col>
+      <!-- <div class="col-0"> -->
+
+      <el-col class="mt-20" :xs="24" :sm="12" :md="8">
+        <div class="button_container row just-center">
+          <el-button class="search_icon1" @click="selectDestination(currentPage)" >
+            <!-- <a :href="/search?city=${city.name}?field1=${index}&date=${city.services}">" -->
+            <a class="row"  >
+              <img
+                src="/button_icon.png"
+                style="margin-right: 5px; margin-top: 3px"
+              /><div class="text11">Show Activities</div>
+            </a>
+            
+          </el-button>
+        </div>
+      </el-col>
+    </el-row>
+    <div class="row"></div>
   </div>
 </template>
-<style>
-
-/* Search Bar */
-.search-bar{
-    position: relative;
-    display: grid;
-    width: 80%;
-    height: 300px;
-    top: 3rem;
-    margin: 0 auto;
-    /* border-radius: 1rem; */
-    background: #995858;
-    box-shadow: 0vw 0.28vw 1.11vw rgba(141, 211, 187, 0.15);
-    border-radius: 0.56vw;
-
-}
-@media (max-width: 768px) {
-    .search-bar {
-      margin-left: 20%;
-      width: 90%;
-      height: auto;
-    }
-  }
-
-/* .search-box{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 0vw;
-    gap: 2.22vw;
-    width: 16.32vw;
-    height: 3.33vw;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    background-color: #112211;
-}
-@media (max-width: 768px) {
-    .search-box {
-      width: 80%;
-      height: auto;
-    }
-  } */
-
-.textbox {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #52ce71;
-  width: 100%;
-}
-
-.textbox1, .textbox2, .textbox3 {
-  flex: 1;
-  width: 250px;
-  margin: 0 100px;
-}
-@media (min-width: 768px) and (max-width: 1440px) {
-  .textbox1, .textbox2, .textbox3 {
-    width: 100%;
-    margin: 0 50px;
-  }
-}
-@media (max-width: 768px) {
-  .textbox1, .textbox2, .textbox3 {
-    width: 70%;
-    margin: 0 20px;
-  }
-}
-@media (max-width: 576px) {
-  .textbox1, .textbox2, .textbox3 {
-    margin: 0 10px;
-    width: 70%;
-  }
-}
-
-.textbox1 .el-input__inner{
-    border-color:#79747E;
- }
- .textbox2 .el-input__inner{
-    border-color:#79747E;
- }
- .textbox3 .el-input__inner{
-    border-color:#79747E;
- }
-
-.search-button{
-   margin-top: -5%;
-   display: flex;
-   flex-direction: row;
-   justify-content: flex-end;
-   align-items: center;
-   padding: 0%;
-   width: 90%;
-   height: 0% ;
-   flex: none;
-   order: 2;
-   align-self: stretch;
-   flex-grow: 0;
-   background-color: rgb(53, 35, 151);
-   z-index: 2;
-}
-
-.menu{
-    display: flex;
-    align-items: center;
-    font-family: 'Gilroy';
-    font-style: normal;
-    font-weight: 600px;
-    font-size: 16px;
-    line-height: 2rem;
-    margin-top: 10px;
-    margin-left: 2px;
-    background-color: chocolate;
-    height:2rem;
-}
-@media (max-width: 768px) {
-    .menu {
-      font-size: 14px;
-    }
-  }
-.el-menu-item.is-active {
-    border-bottom-color: #8DD3BB !important;
-}
-
-.my_button{
-   background-color:#8DD3BB;
-   color:#112211;
-   /* border-color: #8DD3BB; */
-   border: none;
-}
-.my_button:focus,.my_button:hover{
-   background-color:#8DD3BB;
-   /* border-color: #8DD3BB; */
-   color:#112211 ;
-   outline: none !important;
-}
-.my_button:active{
-   background-color:#578978;
-   color:#112211;
-   /* border-color: #578978; */
-}
-.navmenu{
-display: flex;
-flex-direction: row;
-top:14vw;
-margin-left: 2vw;
-}
-</style>
 <script>
 import { useDestinationStore } from "../store/test";
 import { useTagStore } from "../store/tag";
@@ -235,29 +80,32 @@ import callEvent from "../store/callEvent";
 export default {
   data() {
     return {
-      activeIndex: "1",
-      searchInput: "",
-      dateValue: "",
-      searchcategories: "",
+      activeIndex:'1',
+      searchInput:'',
+      dateValue:new Date(),
+      searchcategories:'',
       destinations: [],
-      tags: [],
-      selectedDestination: "",
-      currency: "CAD",
-      products: [],
+      tags:[],
+      selectedDestination:"",
+      currency:'CAD',
+      products:[],
       currentPage: 1,
+      selectedDestinationName:'',
+      pickOptions:{
+      disabledDate(time){
+          return time.getTime()<Date.now()-8.64e7;
+          }
+      },
+      
     };
   },
-  // mounted(){
-  //     callEvent.$on('change-page', (currentPage) => {
-  //         this.setCurrentPage(currentPage)
-  //     })
-  //     callEvent.$on('updateValue', (value) => {
-  //         this.value = value
-  //         console.log("value:" +this.value)
-  //         this.selectDestination(this.currentPage)
-  //     })
-
-  // },
+  mounted (){
+             
+      callEvent.$on('send-currency',(currency)=>{
+      this.currency=currency
+      // console.log("currency"+ this.currency)
+      })
+  },
   computed: {
     filteredDestinations() {
       return this.destinations.filter((destination) => {
@@ -287,6 +135,15 @@ export default {
     };
   },
   methods: {
+    init() {
+      console.log("init city name", this.$route);
+      const { name } = this.$route.params;
+      this.cityName = name;
+      const { field1, services } = this.$route.query;
+      this.fields1 = field1;
+      this.services = services;
+      // call api
+    },
     async searchDestination() {
       await this.destination.getDestinations();
       this.destinations = this.destination.destinations;
@@ -320,40 +177,54 @@ export default {
       this.selectedDestination = item.id;
       // console.log(this.selectedDestination)
     },
-    goNextPage() {
-      this.$router.push({ path: "/search" });
+    selectDestFunction(item) {
+        this.selectedDestination = item.id
+        this.selectedDestinationName=item.value
+        console.log(this.selectedDestinationName)
+        // console.log(this.selectedDestination)
     },
-    selectDestination(currentPage) {
-      if (!this.selectedDestination) return;
-      this.$router.push({ path: "/search" });
-      console.log(this.selectedDestination);
-      this.selectedDestination = this.selectedDestination;
-
-      try {
-        const params = {
-          filtering: {
-            destination: this.selectedDestination,
-          },
-          currency: this.currency,
-          pagination: {
-            start: (currentPage - 1) * 7 + 1,
-            count: 7,
-          },
-        };
-
+    async selectDestination(currentPage) {
+        if (!this.selectedDestination) 
+        {
+            this.$alert('Please select a destination', 'Missing Destination', {
+            confirmButtonText: 'Confirm',
+            });
+            return;
+        }
+        this.$router.push({ path: '/search'}) 
+        // console.log(this.selectedDestination)
+        // console.log(this.currency)
+        this.selectedDestinationName=this.selectedDestinationName
+        console.log(this.selectedDestinationName)
+        this.selectedDestination = this.selectedDestination
+        try{  
+        const params={
+            filtering:{
+                destination: this.selectedDestination,
+                
+            },
+            currency:this.currency,
+            pagination:{
+                start:(currentPage-1)*7+1,
+                count:7
+            },
+        }
         // console.log(params.filtering.destination)
         // console.log(params.currency)
-        axios.post("/api/products/search", params).then((response) => {
-          let data = {
-            products: response.data.products,
-            totalCount: response.data.totalCount,
-            selectedDestination: this.selectedDestination,
-          };
-          callEvent.$emit("send-data", data);
-        });
-      } catch (error) {
-        console.log(error);
-      }
+        await axios.post('/api/products/search', params)
+          .then(response=>{
+            let data={
+                products: response.data.products,
+                totalCount: response.data.totalCount,
+                selectedDestination:this.selectedDestination,
+                currency:this.currency,
+                selectedDestinationName:this.selectedDestinationName
+            }
+            callEvent.$emit('send-data', data)     
+          })
+        } catch(error){
+          console.log(error)
+        } 
     },
     setCurrentPage(page) {
       this.currentPage = page;
@@ -364,3 +235,83 @@ export default {
   },
 };
 </script>
+
+<style>
+/* Search Bar */
+.search-bar {
+  position: relative;
+  display: grid;
+  width: 80%;
+  height: 240px;
+  top: -7rem;
+  margin: 0 auto;
+  padding: 5px 20px;
+  background: #ffffff;
+  box-shadow: 0px 4px 16px rgba(141, 211, 187, 0.15);
+  border-radius: 16px;
+}
+@media (max-width: 769px) {
+  .search-bar {
+    height: 280px;
+  }
+}
+.switch-tab {
+  height: 50px;
+  line-height: 50px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.switch-tab span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #999;
+}
+
+.switch-tab.select {
+  border-bottom: 2px solid #ccc;
+}
+
+.switch-tab.select span {
+  color: #112211;
+}
+.search_icon1 {
+  display: flex;
+  border-radius: 5px;
+  padding: 12px 10px;
+  font-weight: 540;
+  line-height: 13px;
+  background-color: #a0d9c5;
+  border: unset;
+}
+.text11 {
+  height: 15px;
+  margin-top: 5px;
+}
+/* .search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 12px 5px;
+  background-color: #8dd3bb;
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 540;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: start;
+  color: #000000;
+  width: 130px; 
+  border: unset;
+} */
+@media (max-width: 993px) {
+  .button_container {
+    justify-content: start;
+  }
+}
+@media (max-width: 768px) {
+  .button_container {
+    justify-content: center;
+  }
+}
+</style>

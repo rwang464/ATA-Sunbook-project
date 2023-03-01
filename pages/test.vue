@@ -1,68 +1,109 @@
-<!-- <template>
-  <test/>
-
-</template> -->
 <template>
-  <div>
-    <form>
-      <input type="text" v-model="filtering.destination" placeholder="Enter destination">
-      <input type="text" v-model="tagsString" placeholder="Enter tags">
-      <input type="text" v-model="currency" placeholder="Enter currency">
-      <button @click.prevent="searchItems">Search</button>
-    </form>
-    <div v-for="product in products" :key="product.id">
-      
-      <p>{{ product.productCode }}</p>
-      <p>{{ product.title }}</p>
-      <p>{{ product.description }}</p>
-      <img :src="product.images[0].variants[3].url" :alt="product.images[0].caption">
-     
-    </div>
-    <p> Total Count: {{ totalCount }}</p>
-
-
-    <nuxt-link to="/front">Go to front Page</nuxt-link>
-    <nuxt-link to="/test_two">Go to test_two Page</nuxt-link>
-    <nuxt-link to="/test_three">Go to test_three Page</nuxt-link>
-    <nuxt-link to="/store">store Page</nuxt-link>
-    <nuxt-link to="/new">new page</nuxt-link>
-
-
+ <div>
+  
+    <button @click="findProduct()">
+        click
+    </button>
+    <!-- <div v-for="total in totals" :key="total.id">
+        {{ total.destinationName }}
+    </div> -->
     
-    <nuxt-child />
-  </div>
+    <el-autocomplete class="w-p-100" placeholder="请输入目的地" 
+        v-model="searchInput" :fetch-suggestions="showName" 
+        :trigger-on-focus="false"
+        @select="selectDestFunction">
+        
+      </el-autocomplete>
 
+    <div v-for="product in products" :key="product.id">
+        {{  product.title}}
+        <br>
+        {{ product.productCode }}
+
+    </div>
+ </div>
 </template>
 
 <script>
-import axios from 'axios'
-
+import axios from 'axios';
+import {useDestinationStore} from '../store/test'
 export default {
-  data() {
-    return {
-      filtering: {
-        destination: '',
-        tags: [],
-      },
-      tagsString: '',
-      currency: '',
-      products: [],
-      totalCount: 0
+    data () {
+        return {
+            totals:'',
+            searchInput:'',
+            selectedDestination:"",
+            selectedDestinationName:"",
+            products:'',
+            currency:'CAD'
+            
+        }
+    },
+    setup(){
+        const data = useDestinationStore()
+        return{
+            data,
+        }
+    },
+    computed:{
+        filterDestination(){
+            return this.totals.filter(total=>{
+                if (total && total.destinationName) {
+                return total.destinationName.toLowerCase().includes(this.searchInput.toLowerCase())
+                }
+            })
+        }
+    },
+    created(){
+        
+    },
+    methods:{
+        // async aaaaa(){
+        //     try{
+        //         const response=await axios.get('/api/v1/taxonomy/destinations');
+        //         this.destinations=response.data.data
+        //         console.log(this.destinations)
+        //     }catch(error){
+        //         console.log(error)
+        //     }
+        // },
+        async getData(){
+           await this.data.getDestinations()
+           this.totals=this.data.destinations
+            //console.log(this.totals)
+        },
+    
+        showName(inputName,aa){
+            this.searchInput=inputName
+            this.getData().then(()=>{
+                const result=this.filterDestination.map((total)=>{
+                    return {value:total.destinationName, id:total.destinationId}
+                })
+                aa(result)
+            })
+        },
+        selectDestFunction(item){
+            this.selectedDestination = item.id
+            this.selectedDestinationName=item.value
+            console.log(this.selectedDestination)
+        },
+        async findProduct(){
+            console.log(this.selectedDestination)
+
+            try{
+                const params={
+                    filtering:{
+                        destination: this.selectedDestination,
+                    },
+                    currency:this.currency,
+                }
+                const response=await axios.post('/api/products/search', params)
+                this.products=response.data.products
+                console.log(this.products)
+            }catch(error){
+                console.log(error)
+            }
+        }
     }
-  },
-  methods: {
-    searchItems() {
-      this.filtering.tags = this.tagsString.split(',').map(Number)
-      let requestBody = {
-        filtering: this.filtering,
-        currency: this.currency
-      }
-      axios.post('/api//products/search', requestBody)
-      .then(response => {
-        this.products = response.data.products
-        this.totalCount = response.data.totalCount
-      })
-    }
-  }
 }
 </script>

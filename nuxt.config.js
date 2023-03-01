@@ -22,6 +22,7 @@ export default {
     'element-ui/lib/theme-chalk/index.css',
     '@fortawesome/fontawesome-free/css/all.css',
     '@/assets/global.css',
+    '@/assets/common.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -65,6 +66,7 @@ export default {
         'exp-api-key': `fc570313-1e61-4cb5-b74d-63a5c5e2fa76`,
         'Accept': 'application/json;version=2.0',
         'Access-Control-Allow-Origin':'*',
+        'Accept-Language': 'en-US'
         
       }
     }
