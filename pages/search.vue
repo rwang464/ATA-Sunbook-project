@@ -512,7 +512,9 @@
 
       </div>
 
+      <div class="foot_part_set">
       <footerPart />
+      </div>
 
     </div>
 
@@ -1324,7 +1326,7 @@ export default {
 .total-container1{
   display: flex;
   width: 100%;
-  height: 2300px;
+  height: auto;
   align-items: end;
   justify-items: center;
   display: flex;
@@ -1675,6 +1677,16 @@ export default {
   height: 2000px;
   padding: 5px 10px;
 }
+.page_part{
+  margin-top: 150px;
+  margin-bottom: 40px;
+}
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
 .mini-bottom{
     position: fixed;
     right: 50px;
@@ -1694,5 +1706,8 @@ export default {
     .left_part{
         display:none;
     }
+}
+.foot_part_set{
+  width: 100%;
 }
 </style>

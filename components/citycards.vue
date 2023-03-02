@@ -10,18 +10,18 @@
           :key="index"
         >
         
-          <el-card shadow="always" class="city-card-body" style="cursor: pointer;"
+          <el-card shadow="always" class="city-card-body" style="cursor: pointer; padding: 10px 10px;"
           @click.native="getId(city.id)" >
             <!-- 一般官网用这个，有利于搜索引擎记忆 -->
             
             <!-- <a :href="`/search?destionId=${city.name}&field1=${index}`"> -->
               <!-- 不用宣传，没有搜索引擎用这个 -->
-              <div class="row align-center">
+              <div class="row align-cente card_body1">
                 <div class="city-card-image">
                   <img class="w-110 h-110" :src="city.img" />
                 </div>
 
-                <div class="ml-30">
+                <div class="ml-30" style="padding: 10px 10px;">
                   <div class="city-body-name">
                 {{ city.name }} 
                   </div>

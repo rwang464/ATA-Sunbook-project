@@ -258,7 +258,7 @@
 
 <style>
 .total-container{
-    margin-top: 300px;
+    margin-top: 200px;
     width: 100%;
     height: 550px;
     align-items: end;
