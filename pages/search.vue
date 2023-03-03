@@ -1,46 +1,17 @@
 <template>
-<div>
-    <div>
-    <titlePart />
-      <productPart />
-       <footerPart />
-
-
-    </div>
-   <div>
-   <!-- <img src="../static/Paris.png"> -->
-   </div>
-    
-</div>
-
-
+    <search_com />
 </template>
 
 <script>
-
-import titlePart from '../components/titlePart.vue';
-import footerPart from '../components/footerPart.vue';
-import searchBar from '../components/searchBar.vue';
-import productPart from '../components/productPart.vue';
-
+import search_com from '../components/search_com.vue';
 export default {
   components: {
-    productPart,
-    titlePart,
-    footerPart,
-    searchBar,
-    
+    search_com,
   },
-  data(){
-    return{
-      products: []
+  data() {
+    return {
+       
     }
   },
- 
-  
 }
 </script>
-
-<style>
-
-</style>

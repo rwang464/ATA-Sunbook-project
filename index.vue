@@ -10,7 +10,8 @@
         </div>
 
         <div class="col-0 row align-center filter-drop-shadow">
-          <img src="../static/Sunbook_colour-01.png" height="45"/>
+          <img src="../static/Sunbook_colour-02.png" height="40" />
+          <!-- <img src="../static/sunbook_text.png" class="ml-10" /> -->
         </div>
 
         <div class="col-0 currency">
@@ -76,11 +77,12 @@
                     <div class="activity-word1">加拿大优选活动</div>
                     <div class="activity-word2 mt-10">多伦多直升机，班夫骑马，温哥华观鲸...</div>
 
-                    <el-button class="search_icon1 mt-15" @click="seachToronto()">
-                      <!-- <a href="/search/" style="display: flex; align-items: center;"> -->
-                        <a class="row"><img src="../static/button_icon.png"  style="margin-top:3px; margin-right: 5px;"/> 
-                          <div class="text11">Show Activities</div></a>
-                    </el-button>
+                    <button class="search_icon mt-15">
+                      <a href="/search/">
+                      <img src="../static/button_icon.png"/>
+                      Show Activities
+                      </a>
+                    </button>
                     
               </div>
 
@@ -95,11 +97,12 @@
                     <div class="activity-word1">阳光海滩度假活动</div>
                     <div class="activity-word2 mt-10">冲浪，浮潜，水上摩托...</div>
 
-                    <el-button class="search_icon1 mt-15" @click="seachToronto()">
-                      <!-- <a href="/search/" style="display: flex; align-items: center;"> -->
-                        <a class="row"><img src="../static/button_icon.png"  style="margin-top:3px; margin-right: 5px;"/> 
-                          <div class="text11">Show Activities</div></a>
-                    </el-button>
+                    <button class="search_icon mt-15">
+                      <a href="/search/">
+                      <img src="../static/button_icon.png"/>
+                      Show Activities
+                      </a>
+                    </button>
                     
               </div>
 
@@ -143,7 +146,7 @@
               </div>
 
               <div class="image_container3 p-rl-20">
-                <div class="image_container-bg"></div>
+
                 <div class="reason-text-title">
                   Award-winning support
                 </div>
@@ -151,7 +154,7 @@
                 <div class="reason-text-word">
                   New price? New plan? No problem. We’re here to help, 24/7, in Chinese or English
                 </div>
-                
+                <div class="image_container-bg"></div>
 
               </div>
           
@@ -179,7 +182,7 @@ body {
   pointer-events: auto;
 }
 .Wrapper {
-  width: 95%;
+  width: 100%;
   height: 600px;
   background-image: url("../static/topper.png");
   position: relative;
@@ -189,7 +192,6 @@ body {
   background-size: cover;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
 }
 .wrapper-bg {
   background-color: rgba(0, 0, 0, 0.2);
@@ -299,11 +301,17 @@ body {
   .activity-wrapper {
     align-items: center;
     width: 100%;
-    height: 1220px;
+    height: 1020px;
     display: flex;
     flex-direction: column;
   }
+  .img_container1,.img_container2{
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
 }
+
 .activity-wrapper1{
   width: 100%;
   height: 600px;
@@ -312,19 +320,11 @@ body {
   flex-direction: row;
   justify-content: space-around;
 }
-@media (max-width: 780px) {
-  .activity-wrapper {
-    height: 1100px;
-    gap: 60px;
-  }
-}
-.search_icon1{
+.search_icon{
   display: flex;
-  align-items: center;
-  flex-direction: row;
   border-radius: 5px;
-  padding: 11px 10px;
-  background-color: #8DD3BB;
+  padding: 13px 10px;
+  background-color: aquamarine;
   border: unset;
 }
 .img_container1{
@@ -350,12 +350,6 @@ body {
   width: 48%;
   height: 100%;
   border-radius: 24px;
-}
-@media (max-width:780px){
-  .image_container1, .image_container2{
-    width: 300px;
-    height: 70%;
-  }
 }
 .word-title-more {
   border: 1px solid #8dd3bb;
@@ -434,7 +428,7 @@ body {
 }
 .image_container1, .image_container2, .image_container3{
   display: flex;
-  border-radius: 11px;
+  border-radius: 10px;
   background-color: rgb(246, 246, 246);
   background-position: center bottom 30px;
   background-size: 90% 40%;
@@ -454,8 +448,7 @@ body {
   /* border:1px solid; */
   width: 100%;
   height: 100%;
-  background-color: #8DD3BB;
-  opacity: 40%;
+  background-color: #c6cbc9;
   z-index: -1;
   border-radius: 10px;
 }
@@ -549,7 +542,7 @@ export default {
     footerPart,
   },
   computed:{
-    filteredDestinations() {
+            filteredDestinations() {
                 return this.destinations.filter(destination => {
                 return destination.destinationName.toLowerCase().includes(this.searchInput.toLowerCase())
                 })
@@ -568,7 +561,15 @@ export default {
             await this.destination.getDestinations()
             this.destinations = this.destination.destinations
             },
-        
+        querySearch(queryString, cb) {
+            this.searchInput = queryString
+            this.searchDestination().then(() => {
+            const results = this.filteredDestinations.map(destination => {
+                return { value: destination.destinationName,id:destination.destinationId }
+            })
+            cb(results)
+            })
+        },
         goNextPage() {
             this.$router.push({ path: '/search' })
 
@@ -586,6 +587,51 @@ export default {
             callEvent.$emit('send-currency',this.currency)
             const selected = this.currencies.find(item => item.value === command);
             this.selectedFlag = selected.flag;
+            },
+            searchTurkey(){
+            this.selectedDestination="585";
+            this.selectDestination(this.currentPage);
+
+            },
+            searchSydney(){
+            this.selectedDestination="357";
+            this.selectDestination(this.currentPage);
+            },
+            searchBaku(){
+            this.selectedDestination="22974";
+            this.selectDestination(this.currentPage);
+            },
+            searchMale(){
+            this.selectedDestination="4673";
+            this.selectDestination(this.currentPage);
+            },
+            searchParis(){
+            this.selectedDestination="479";
+            this.selectDestination(this.currentPage);
+            },
+            searchNewYork(){
+            this.selectedDestination="687";
+            this.selectDestination(this.currentPage);
+            },
+            searchLondon(){
+            this.selectedDestination="737";
+            this.selectDestination(this.currentPage);
+            },
+            searchTokyo(){
+            this.selectedDestination="334";
+            this.selectDestination(this.currentPage);
+            },
+            searchDubai(){
+            this.selectedDestination="828";
+            this.selectDestination(this.currentPage);
+            },
+            seachToronto(){
+            this.selectedDestination='623'
+            this.selectDestination(this.currentPage);
+            },
+            searchActivity(){
+            this.selectedDestination='631'
+            this.selectDestination(this.currentPage);
             },
             selectDestination(currentPage) {
             this.$router.push({ path: '/search'}) 
@@ -630,10 +676,6 @@ export default {
         sunbookLink(){
             window.open(this.newLocation,"_blank");
         },
-         seachToronto(){
-            this.selectedDestination='623'
-            this.selectDestination(this.currentPage);
-            },
         
 
     },
@@ -643,3 +685,232 @@ export default {
 
 }
 </script>
+html,body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.wrapper {
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 100%;
+  background-image: url("../static/topper.png");
+  background-color: #8dd3bb;
+  padding: 0 5vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-logo {
+  background-color: #112211;
+  position: absolute;
+  top: 10px;
+}
+.img-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -5px;
+}
+.inner > * {
+  flex: 1;
+  margin: 0 5px;
+}
+.search-bar-wrapper {
+  position: relative;
+}
+
+.recommendation-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 40px;
+  position: absolute;
+  width: 90%;
+  height: 30rem;
+  left: 5rem;
+  top: 20rem;
+  /* background-color: #8DD3BB; */
+}
+.activity-wrapper {
+  display: grid;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 24px;
+  position: absolute;
+  width: 91%;
+  height: 520px;
+  left: 5.6%;
+  top: 1365px;
+  margin-top: 300px;
+}
+
+
+
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px;
+  gap: 128px;
+
+  position: absolute;
+  width: 100%;
+  height: 570px;
+  left: 0px;
+  top: 3060px;
+
+  background-color: #8dd3bb;
+}
+
+.reason-choose-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 40px;
+  position: absolute;
+  width: 1358px;
+  height: 600px;
+  left: 80px;
+  top: 1730px;
+}
+.img1 {
+  display: grid;
+  /* float: left; */
+  margin-left: 4rem;
+  margin-right: 4rem;
+  height: 38rem;
+  width: 92%;
+  z-index: 100;
+  filter: brightness(70%);
+  /* opacity: 0;
+        filter:alpha(opacity=100) */
+}
+
+.menu_title {
+  background-color: #7ccab0;
+  margin-top: 200px;
+  display: flex;
+  justify-content: space-between;
+  width: 103%;
+}
+.word_title {
+  margin-top: 20px;
+  align-items: center;
+  width: 70%;
+  font-family: "Alibaba PuHuiTi";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 2.29vw;
+  color: rgb(0, 0, 0);
+}
+.button_find {
+  margin: 14px 14px 14px 14px;
+}
+.button_find_1 {
+  border-color: #8dd3bb;
+}
+.button_find_1:focus,
+.button_find_1:hover {
+  border-color: #7ccab0 !important;
+  color: #122512 !important;
+}
+.button_find_1:active {
+  background-color: #8dd3bb;
+  color: #112211;
+  border-color: #8dd3bb;
+}
+activity1 {
+  display: grid;
+}
+activity2 {
+  display: grid;
+}
+.activity-image1 {
+  position: absolute;
+  width: 43.5vw;
+  height: 38.9vw;
+  left: 0px;
+  top: 0px;
+  border-radius: 20px;
+  filter: brightness(75%);
+}
+.activity-image2 {
+  position: absolute;
+  width: 43.5vw;
+  height: 38.9vw;
+  left: 46.46vw;
+  top: 0px;
+  border-radius: 20px;
+}
+
+.activity-search-box {
+  position: absolute;
+  top: 400px;
+  margin-left: 170px;
+}
+.activity-search-box1 {
+  position: absolute;
+  top: 400px;
+  margin-left: 730px;
+}
+.reason-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  gap: 40px;
+  position: absolute;
+  width: 358px;
+  height: 421px;
+  left: -2px;
+  top: 95px;
+  background: #ffffff;
+  box-shadow: 2px 4px 16px rgba(17, 34, 17, 0.1);
+  border-radius: 20px;
+  z-index: 2;
+}
+.reason-background {
+  position: absolute;
+  width: 415px;
+  height: 465px;
+  left: 10px;
+  top: 118px;
+
+  background: rgba(141, 211, 187, 0.4);
+  border-radius: 20px;
+}
+
+.reason-text-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  gap: 16px;
+  width: 377px;
+  height: 133px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+
+</style> -->
