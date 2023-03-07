@@ -1,5 +1,13 @@
 <template>
+<<<<<<< HEAD
   <div class="right_product_part">
+=======
+<<<<<<< HEAD
+  <div class="right_product_part">
+=======
+  <div>
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
       <div class="product-wrapper">
         <div class="product-card-wrapper">
           <el-col :span="80" v-for="(product, index) in products" :key="index">
@@ -557,15 +565,32 @@ export default {
 <style>
 .product-wrapper {
   height: 2100px;
+<<<<<<< HEAD
   width: 97%;
   padding: 20px 10px;
+=======
+<<<<<<< HEAD
+  width: 100%;
+=======
+  width: 97%;
+  padding: 20px 10px;
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   gap: 30px;
 }
 .product-card-wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
+<<<<<<< HEAD
   height: auto;
+=======
+<<<<<<< HEAD
+  height: auto;
+=======
+  height: 2100px;
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   gap: 40px;
   cursor: pointer;
   filter: drop-shadow(0vw 0.28vw 1.11vw rgba(17, 34, 17, 0.05));
@@ -573,14 +598,30 @@ export default {
 .card_body{
   border-radius: 0.83vw 0.83vw 0.83vw 0.83vw;
 }
+<<<<<<< HEAD
 .product-card-wrapper .el-card__body{
   width: 100%;
   height: 250px;
+=======
+<<<<<<< HEAD
+.product-card-wrapper .el-card__body{
+  width: 100%;
+  height: 250px;
+=======
+.el-card__body{
+  width: 100%;
+  height: 230px;
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   padding: 0;
   display: flex;
   flex-direction: row;
   border-radius: 0.83vw 0vw 0vw 0.83vw;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 /* 11111 */
 .el-radio--mini.is-bordered{
     width: 15%;
@@ -589,25 +630,51 @@ export default {
   margin-right: 5px;
 }
 /* @media (min-width: 1370px){
+<<<<<<< HEAD
+=======
+=======
+@media (min-width: 1370px){
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   .el-card__body{
     width: auto;
     height: auto;
   }
+<<<<<<< HEAD
 } */
 @media (max-width: 1000px){
   .el-card__body{
     height: auto;
+=======
+<<<<<<< HEAD
+} */
+
+=======
+}
+@media (max-width: 1000px){
+  .el-card__body{
+    height: 200px;
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   }
 }
 .left_img{
   width: 35%;
   height: 100%;
 }
+<<<<<<< HEAD
 /* @media (min-width: 1370px){
   .left_img{
     height: auto;
   }
 } */
+=======
+@media (min-width: 1370px){
+  .left_img{
+    height: auto;
+  }
+}
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 .product-image-wrapper {
   width: 100%;
   height: 100%;
@@ -617,6 +684,15 @@ export default {
   height: 100%;
   border-radius: 0.83vw 0vw 0vw 0.83vw;
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+.right_top{
+  width:100%;
+  height: 80%;
+=======
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 .right_part1{
   width: 65%;
   height: 100%;
@@ -629,6 +705,10 @@ export default {
 .right_top{
   width:100%;
   height: 65%;
+<<<<<<< HEAD
+=======
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 }
 .right_text{
   display: flex;
@@ -644,7 +724,15 @@ export default {
 }
 .bottom_button{
   width: 100%;
+<<<<<<< HEAD
   height: 35%;
+=======
+<<<<<<< HEAD
+  height: 20%;
+=======
+  height: 35%;
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 }
 .product-title-word {
   margin-top: 10px;
@@ -657,7 +745,15 @@ export default {
 }
 @media (max-width: 1000px){
   .product-title-word{
+<<<<<<< HEAD
     margin-top: 20px;
+=======
+<<<<<<< HEAD
+    margin-top: 10px;
+=======
+    margin-top: 20px;
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   }
 }
 @media (max-width: 600px){
@@ -667,20 +763,47 @@ export default {
   }
 }
 .product-description {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  width: 100%;
+  height: 35%;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #112211;
+  opacity: 0.75;
+=======
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
   font-size: 0.9vw;
   line-height: 1.2vw;
+<<<<<<< HEAD
+=======
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+<<<<<<< HEAD
 .product-duration{
   margin-top: 10px;
 }
+=======
+<<<<<<< HEAD
+.product-duration{
+  margin-top: 15px;
+}
+=======
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 /* @media (max-width: 1000px){
   .product-durations{
     margin-top: 25px;
@@ -714,6 +837,32 @@ export default {
   font-style: normal;
   font-weight: 500;
   font-size: 0.83vw;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+}
+.bottom_button {
+  line-height: 1.04vw;
+  color: #112211;
+}
+.product-price-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 20px;
+}
+
+.product-price-word {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+=======
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   line-height: 1.04vw;
   color: #112211;
 }
@@ -734,6 +883,10 @@ export default {
     margin-top: 10px;
   }
 }
+<<<<<<< HEAD
+=======
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 .price-word1 {
   font-family: "Montserrat";
   font-style: normal;
@@ -741,9 +894,23 @@ export default {
   font-size: 0.83vw;
   color: #112211;
   opacity: 0.75;
+<<<<<<< HEAD
   margin-left: 22px;
   margin-top: 10px;
 }
+=======
+<<<<<<< HEAD
+  margin-top: 10px;
+  align-self: flex-start;
+  margin-left: 30px;
+}
+
+=======
+  margin-left: 22px;
+  margin-top: 10px;
+}
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 .price-word2 {
   font-family: "Montserrat";
   font-style: normal;
@@ -751,7 +918,17 @@ export default {
   font-size: 1.39vw;
   text-align: right;
   color: #ff8682;
+<<<<<<< HEAD
 }
+=======
+<<<<<<< HEAD
+  align-self: flex-end;
+}
+
+=======
+}
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 .price-word3 {
   font-family: "Montserrat";
   font-style: normal;
@@ -760,6 +937,21 @@ export default {
   text-align: right;
   color: #112211;
   opacity: 0.75;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  align-self: flex-end;
+}
+
+
+.duration-word1 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+=======
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 }
 .duration-word1 {
   margin-top: 1px;
@@ -768,6 +960,10 @@ export default {
   font-weight: 500;
   font-size: 1.04vw;
   line-height: 1.04vw;
+<<<<<<< HEAD
+=======
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   color: #112211;
 }
 .product-rating {
@@ -796,16 +992,36 @@ export default {
 }
 .product-button-wrapper{
   width: 100%;
+<<<<<<< HEAD
   height: 60%;
+=======
+<<<<<<< HEAD
+  height: 60%;
+=======
+  height: 100%;
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   display: flex;
   align-items: center;
   justify-content: center;
 }
+<<<<<<< HEAD
 @media (min-width: 1370px){
   .product-button-wrapper {
     margin-top: 10px;
   }
 }
+=======
+<<<<<<< HEAD
+
+=======
+@media (min-width: 1370px){
+  .product-button-wrapper {
+    margin-top: 20px;
+  }
+}
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 .view-price-button {
   width: 85%;
   background-color: #8dd3bb;
@@ -830,11 +1046,25 @@ export default {
   gap: 5px;
 }
 .view-price-button-word {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+=======
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
   font-size: 0.97vw;
   line-height: 1.18vw;
+<<<<<<< HEAD
+=======
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   color: #112211;
 }
 </style>

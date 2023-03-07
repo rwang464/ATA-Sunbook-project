@@ -1,1 +1,1 @@
-# api_travel
+# api_travel project (Nuxt.js)

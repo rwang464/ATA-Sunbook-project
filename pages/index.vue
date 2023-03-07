@@ -5,13 +5,22 @@
       <div class="wrapper-bg"></div>
 
       <div class="row align-center color-white p-30 space-between">
+<<<<<<< HEAD
         <div class="col-01 go-home filter-drop-shadow">
           <a href="https://www.sunbook.com" target="_blank" @click.prevent="sunbookLink">
           <i class="fa-solid fa-plane"></i> 返回日光记主站</a>
+=======
+        <div class="col-0 go-home filter-drop-shadow" @click="sunbookLink()">
+          <i class="fa-solid fa-plane"></i> 返回日光记主站
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
         </div>
 
         <div class="col-0 row align-center filter-drop-shadow">
           <img src="../static/Sunbook_colour-01.png" height="45"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
         </div>
 
         <div class="col-0 currency">
@@ -161,7 +170,163 @@
     </div>  
     
     <footerPart />
+<<<<<<< HEAD
 
+=======
+
+=======
+        </div>
+
+        <div class="col-0 currency">
+          <el-dropdown @command="handleCommand">
+            <el-button type="primary" class="currency-change">
+              <div class="row align-center">
+                <img :src="selectedFlag" width="16px" />
+
+                <div class="currency-show ml-5">
+                  {{ selectedCurrency }}
+                </div>
+              </div>
+            </el-button>
+
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item
+                v-for="item in currencies"
+                :key="item.value"
+                :command="item.value"
+                >{{ item.label }}
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+      </div>
+
+      <div class="text-center wrapper-center">
+        <div class="word_order filter-drop-shadow">快来预订！</div>
+        <div class="word_vacation m-tb-20 filter-drop-shadow">
+          解锁你的阳光海滩度假活动
+        </div>
+        <div class="word_surfing filter-drop-shadow">
+          冲浪，浮潜，水上摩托，市内一日游...
+        </div>
+      </div>
+
+    </div>
+
+    <div class="search-bar-wrapper">
+      <searchBar />
+    </div>
+
+
+
+    <div class="recommendation-wrapper">
+      <div class="menu_title1 row align-center p-rl-20">
+        <div class="word-title fs-20 fs-bold col-1">全球热门目的地</div>
+      </div>
+
+      <citycards />
+    </div>
+
+
+
+      
+    <div class="row activity-wrapper mb-40 mt-40">
+      
+     
+          <div class="img_container1 row">
+              
+              <div class="content">
+                    
+                    <div class="activity-word1">加拿大优选活动</div>
+                    <div class="activity-word2 mt-10">多伦多直升机，班夫骑马，温哥华观鲸...</div>
+
+                    <el-button class="search_icon mt-15">
+                      <a href="/search/" style="display: flex; align-items: center;">
+                      <img src="../static/button_icon.png" style="margin-top:3px; margin-right: 5px;"/> 
+                      <div>Show Activities</div></a>
+                    </el-button>
+                    
+              </div>
+
+          </div>
+
+        
+      
+            <div class="img_container2 row">
+              
+              <div class="content">
+                    
+                    <div class="activity-word1">阳光海滩度假活动</div>
+                    <div class="activity-word2 mt-10">冲浪，浮潜，水上摩托...</div>
+
+                    <el-button class="search_icon mt-15">
+                      <a href="/search/" style="display: flex; align-items: center;">
+                      <img src="../static/button_icon.png" style="margin-top:3px; margin-right: 5px;"/> 
+                      <div>Show Activities</div></a>
+                    </el-button>
+                    
+              </div>
+
+            </div>
+
+    </div>
+
+
+
+
+    <div class="bot-wrapper">
+
+        <div class="reason-word">
+          为什么在Sunbook预订？
+        </div>
+
+
+        <div class="image_container">
+              <div class="image_container1 p-rl-20">
+                <div class="image_container-bg"></div>
+
+                <div class="reason-text-title">
+                  Ultimate flexibility
+                </div>
+
+                <div class="reason-text-word">
+                  You are in control, with free cancellation and payment options to satisfy any plan or budget.
+                </div>
+              </div>    
+
+              <div class="image_container2 p-rl-20">
+                <div class="image_container-bg"></div>
+                <div class="reason-text-title">
+                  Memorable experiences
+                </div>
+
+                <div class="reason-text-word">
+                  Browse and book tours and activities so incredible, you’ll want to tell your friends.
+                </div>
+
+              </div>
+
+              <div class="image_container3 p-rl-20">
+
+                <div class="reason-text-title">
+                  Award-winning support
+                </div>
+
+                <div class="reason-text-word">
+                  New price? New plan? No problem. We’re here to help, 24/7, in Chinese or English
+                </div>
+                <div class="image_container-bg"></div>
+
+              </div>
+          
+        </div>
+      
+    </div>  
+    
+    <footerPart />
+
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   </div>
 </template>
 
@@ -174,7 +339,11 @@ body {
 }
 .currency,
 .go-home {
+<<<<<<< HEAD
   width: 150px;
+=======
+  width: 140px;
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   color:white; 
   cursor: pointer; 
   pointer-events: auto;
@@ -217,12 +386,15 @@ body {
 .filter-drop-shadow {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
+<<<<<<< HEAD
 .col-01 a{
     color: #fff;
 }
 .col-01 i{
     color: #fff;
 }
+=======
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 .word_order {
   font-family: "Alibaba PuHuiTi";
   font-style: normal;
@@ -235,7 +407,11 @@ body {
   font-family: "Alibaba PuHuiTi";
   font-style: normal;
   font-weight: 700;
+<<<<<<< HEAD
   font-size: 52px;
+=======
+  font-size: 43px;
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   text-align: center;
   text-transform: uppercase;
   color: #ffffff;
@@ -325,13 +501,29 @@ body {
     gap: 60px;
   }
 }
+<<<<<<< HEAD
 .search_icon1{
+=======
+<<<<<<< HEAD
+.search_icon1{
+=======
+.search_icon{
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   display: flex;
   align-items: center;
   flex-direction: row;
   border-radius: 5px;
   padding: 11px 10px;
+<<<<<<< HEAD
   background-color: #8DD3BB;
+=======
+<<<<<<< HEAD
+  background-color: #8DD3BB;
+=======
+  background-color: aquamarine;
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   border: unset;
 }
 .img_container1{
@@ -441,7 +633,15 @@ body {
 }
 .image_container1, .image_container2, .image_container3{
   display: flex;
+<<<<<<< HEAD
   border-radius: 11px;
+=======
+<<<<<<< HEAD
+  border-radius: 11px;
+=======
+  border-radius: 10px;
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   background-color: rgb(246, 246, 246);
   background-position: center bottom 30px;
   background-size: 90% 40%;
@@ -461,8 +661,17 @@ body {
   /* border:1px solid; */
   width: 100%;
   height: 100%;
+<<<<<<< HEAD
   background-color: #8DD3BB;
   opacity: 40%;
+=======
+<<<<<<< HEAD
+  background-color: #8DD3BB;
+  opacity: 40%;
+=======
+  background-color: #c6cbc9;
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
   z-index: -1;
   border-radius: 10px;
 }
@@ -528,12 +737,19 @@ import searchBar from "../components/searchBar.vue";
 import citycards from "../components/citycards.vue";
 import footerPart from "../components/footerPart.vue";
 import axios from 'axios'
+<<<<<<< HEAD
 import callEvent from "../store/callEvent";
+=======
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
 
 export default {
   data() {
     return {
+<<<<<<< HEAD
       dateValue:new Date(),
+=======
+      dateValue: "",
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
       searchInput: "",
       categories: "",
       activeIndex: "1",
@@ -546,7 +762,11 @@ export default {
       currency:'CAD',
       currencies: [
         { value: "CAD", label: "CAD", flag: "/Canada_flag.png" },
+<<<<<<< HEAD
         {value: 'USD', label: 'USD',flag:"Canada_flag.png"},
+=======
+        {value: 'HKD', label: 'HKD',flag:'../static/Canada_flag.png'},
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
       ],
       newLocation:"https://sunbook.ca/",
     };
@@ -572,10 +792,17 @@ export default {
         }
     }, 
   methods: {
+<<<<<<< HEAD
     // async searchDestination() {
     //         await this.destination.getDestinations()
     //         this.destinations = this.destination.destinations
     //         },
+=======
+    async searchDestination() {
+            await this.destination.getDestinations()
+            this.destinations = this.destination.destinations
+            },
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
         
         goNextPage() {
             this.$router.push({ path: '/search' })
@@ -595,8 +822,47 @@ export default {
             const selected = this.currencies.find(item => item.value === command);
             this.selectedFlag = selected.flag;
             },
+<<<<<<< HEAD
         
         updateCurrency(item) {
+=======
+            selectDestination(currentPage) {
+            this.$router.push({ path: '/search'}) 
+            try{     
+            const params={
+                filtering:{
+                    destination: this.selectedDestination,
+                    
+                },
+                currency:this.currency,
+                pagination:{
+                    start:(currentPage-1)*7+1,
+                    count:7
+                },
+              
+      }
+      axios.post('/api/products/search', params)
+            .then(response=>{
+                let turkeyData={
+                    products: response.data.products,
+                    totalCount: response.data.totalCount,
+                    selectedDestination:this.selectedDestination
+                    
+                    
+                }
+                console.log(response.data.products)
+                console.log(turkeyData)
+                callEvent.$emit('send-turkey',turkeyData)
+                    
+            })
+            } catch(error){
+                console.log(error)
+            }
+
+
+            },
+            updateCurrency(item) {
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
             this.currency = item.value;
             console.log(item.value)
             // callEvent.$emit('send-currency',this.currency)
@@ -604,18 +870,30 @@ export default {
         sunbookLink(){
             window.open(this.newLocation,"_blank");
         },
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
          seachToronto(){
             this.selectedDestination='623'
             this.selectDestination(this.currentPage);
             },
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> a5891e47ae5feeca6684f057ea1cd3ec110d5caa
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
         
 
     },
     created() {
         // this.updateCurrency(currencies.value)
+<<<<<<< HEAD
         
           
           
+=======
+>>>>>>> 25e2e5e3185c36f0159755e958a4ea24baef1bb8
     }
 
 }
